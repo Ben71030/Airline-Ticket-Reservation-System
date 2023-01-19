@@ -1,0 +1,24 @@
+<html>
+<head>
+</head>
+<body>
+<h1>Welcome {{username}}</h1>
+
+<form action="/rating_auth" method="POST">
+	<input type="text" name = "flight_num" placeholder="Flight #" required/></br>
+    <input type="text" name = "rating" placeholder="Rate (1-5)" required/></br>
+    <input type="text" name = "comment" placeholder="Comment"/></br>
+	<input type="submit" value = Rate>
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+
+<a href="/customer_home">Go Back</a>
+<br>
+<a href="/customer_logout">Logout</a>
+
+</body>
+
+
+</html>

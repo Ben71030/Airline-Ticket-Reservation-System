@@ -1,0 +1,22 @@
+<html>
+<head>
+</head>
+<body>
+<h1>Welcome {{username}}</h1>
+
+<form action="/cancel_trip_auth" method="POST">
+	<input type="text" name = "Ticket_ID" placeholder="Ticket ID" required/></br>
+	<input type="submit" value = Cancel>
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+
+<a href="/customer_home">Go Back</a>
+<br>
+<a href="/customer_logout">Logout</a>
+
+</body>
+
+
+</html>

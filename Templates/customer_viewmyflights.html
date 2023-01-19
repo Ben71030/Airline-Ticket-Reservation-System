@@ -1,0 +1,38 @@
+<html>
+<head>
+</head>
+<body>
+<h1>Welcome {{email}}</h1>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+<table>
+	<th>Ticket ID</th>
+	<th>Flight #</th>
+    <th>Departure Date</th>
+	<th>Departure Time</th>
+    <th>Airline</th>
+
+
+{% for line in tickets %}
+	<tr>
+		<td>{{line['ID']}}</td>
+		<td>{{line['flight_number']}}</td>
+        <td>{{line['departure_date']}}</td>
+		<td>{{line['departure_time']}}</td>
+        <td>{{line['airline_name']}}</td>
+	</tr>
+{% endfor %}
+</table>
+
+<a href="/customer_home">Go Back</a>
+<a href="/customer_logout">Logout</a>
+
+</body>
+
+
+</html>

@@ -1,0 +1,44 @@
+<html>
+    <head>
+    </head>
+    <body>
+
+        <form action="/airline_staff_add_flightAuth" method="POST">
+            <label>Flight Number</label></br>
+            <input type="text" name = "flight_number" placeholder="Flight Number" required/></br>
+            <label>Departure Date</label></br>
+        	<input type="date" id="departure_date" name = "departure_date" required/></br>
+            <label>Departure Time</label></br>
+        	<input type="time" id="departure_time" name = "departure_time" required/></br>
+<!--            <label>Airline Name</label></br>-->
+<!--            <input type="text" name="airline_name" placeholder="Airline Name" required/> </br>-->
+            <label>Airport Name</label></br>
+            <input type="text" name="airport_name" placeholder="Airport Name" required/> </br>
+            <label>Airplane ID</label></br>
+            <input type="text" name="airplane_id" placeholder="Airplane ID" required/> </br>
+            <label>Airplane Owner Name</label></br>
+            <input type="text" name="airplane_owner_name" placeholder="Airplane Owner Name" required/> </br>
+            <label>Departure Airport</label></br>
+            <input type="text" name="departure_airport" placeholder="Departure Airport" required/> </br>
+            <label>Arrival Airport</label></br>
+            <input type="text" name="arrival_airport" placeholder="Arrival Airport" required/> </br>
+            <label>Arrival Time</label></br>
+        	<input type="time" id="arrival_time" name = "arrival_time" required/></br>
+            <label>Arrival Date</label></br>
+            <input type="date" id="arrival_date" name = "arrival_date" required/></br>
+            <label>Base Price</label></br>
+            <input type="text" name="base_price" placeholder="Base Price" required/> </br>
+            <label>Status</label></br>
+            <input type="text" name="status" placeholder="Status" required/> </br>
+            <input type="submit" value = "Add Flight" />
+            {% if error %}
+                <p class="error"><strong>Error:</strong> {{error}}</p>
+            {% endif %}
+        </form>
+
+        <a href="/airline_staff_home">Back</a>
+        <a href="/airline_staff_logout">Logout</a>
+
+    </body>
+
+</html>

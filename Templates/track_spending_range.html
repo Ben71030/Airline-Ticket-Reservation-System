@@ -1,0 +1,46 @@
+<html>
+<head>
+</head>
+<body>
+
+<h1>Welcome {{email}}</h1>
+
+<p>Check Range</p>
+<form action="/track_spending_range_auth" method="POST">
+	<input type="date" name = "start" placeholder="Start Date" required/></br>
+    <input type="date" name = "end" placeholder="End Date" required/></br>
+	<input type="submit" value = "Check Range" />
+    {% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+<p>This Range Spending: {{total}}</p>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+<table>
+	<th>Month</th>
+    <th>Spending</th>
+
+
+    {% for key in monthly_spending %}
+        <tr>
+            <td>{{key}}</td>
+            <td>{{monthly_spending[key]}}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+
+<a href="/customer_home">Back Home</a>
+<br>
+<a href="/customer_logout">Logout</a>
+
+</body>
+
+
+</html>

@@ -1,0 +1,65 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Welcome {{username}}</h1>
+
+        <form action = "/view_flights_custom_date_range" method="POST">
+            <label>Start Date:</label>
+            <input type="date" id="departure_date_start" name = "departure_date_start" required/></br>
+            <label>End Date:</label>
+            <input type="date" id="departure_date_end" name = "departure_date_end" required/></br>
+            <input type = "submit" value = "Search Flights">
+            {% if error %}
+                <p class="error"><strong>Error:</strong> {{error}}</p>
+            {% endif %}
+        </form><br>
+
+        <style type="text/css">
+            table, th, td{
+                border: 1px solid black;
+            }
+        </style>
+
+        <table>
+            <th>Flight Number</th>
+            <th>Departure Date</th>
+            <th>Departure Time</th>
+            <th>Airline Name</th>
+            <th>Airport Name</th>
+            <th>Airplane ID</th>
+            <th>Airplane Owner Name</th>
+            <th>Departure Airport</th>
+            <th>Arrival Airport</th>
+            <th>Arrival Time</th>
+            <th>Arrival Date</th>
+            <th>Base Price</th>
+            <th>Status</th>
+
+        {% for line in flight %}
+            <tr>
+                <td>{{line['flight_number']}}</td>
+                <td>{{line['departure_date']}}</td>
+                <td>{{line['departure_time']}}</td>
+                <td>{{line['airline_name']}}</td>
+                <td>{{line['airport_name']}}</td>
+                <td>{{line['airplane_id']}}</td>
+                <td>{{line['airplane_owner_name']}}</td>
+                <td>{{line['departure_airport']}}</td>
+                <td>{{line['arrival_airport']}}</td>
+                <td>{{line['arrival_time']}}</td>
+                <td>{{line['arrival_date']}}</td>
+                <td>{{line['base_price']}}</td>
+                <td>{{line['status']}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+
+
+        <a href="/airline_staff_view_flights">Back</a>
+        <a href="/airline_staff_logout">Logout</a>
+
+    </body>
+
+
+</html>

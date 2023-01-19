@@ -1,0 +1,40 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Welcome {{username}}</h1>
+
+        <label>Search Customers of a Flight</label>
+        <form action = "/view_flights_customers" method = "POST">
+            <input type="text" name = "flight_number" placeholder="Flight Number" required/></br>
+            <input type="date" id="departure_date" name = "departure_date" required/></br>
+        	<input type="time" id="departure_time" name = "departure_time" required/></br>
+
+
+            <input type = "submit" value = "View Customers">
+        </form><br>
+
+        <style type="text/css">
+            table, th, td{
+                border: 1px solid black;
+            }
+        </style>
+
+        <table>
+            <th>Name</th>
+
+        {% for line in ticket %}
+            <tr>
+                <td>{{line['name']}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+
+
+        <a href="/airline_staff_view_flights">Back</a>
+        <a href="/airline_staff_logout">Logout</a>
+
+    </body>
+
+
+</html>

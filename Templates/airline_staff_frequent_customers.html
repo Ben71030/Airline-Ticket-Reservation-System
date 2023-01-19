@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+    <style type="text/css">
+        table, th, td{
+            border: 1px solid black;
+        }
+    </style>
+
+    <table>
+        <th>Most Frequent Customers</th>
+
+    {% for line in customers %}
+        <tr>
+            <td>{{line['name']}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+
+
+    <table>
+        <th>Airport Name</th>
+        <th>City</th>
+        <th>Country</th>
+        <th>Airport Type</th>
+
+    {% for line in airports %}
+        <tr>
+            <td>{{line['name']}}</td>
+            <td>{{line['city']}}</td>
+            <td>{{line['country']}}</td>
+            <td>{{line['airport_type']}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+    <a href = "/airline_staff_home"> Go Back</a>
+
+</body>
+</html>

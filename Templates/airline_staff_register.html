@@ -1,0 +1,25 @@
+<html>
+<head>
+</head>
+<body>
+<form action="/airline_staff_registerAuth" method="POST">
+	<label>Username</label><br>
+	<input type="text" name = "username" placeholder="Username" required/></br>
+	<label>Airline Name</label><br>
+	<input type="text" name = "airline_name" placeholder="Airline Name" required/><br>
+	<label>Password</label><br>
+	<input type="password" name = "password" placeholder="Password" required/></br>
+	<label>First Name</label><br>
+	<input type="text" name="first_name" placeholder="First Name" required></br>
+	<label>Last Name</label><br>
+	<input type="text" name="last_name" placeholder="Last Name" required></br>
+	<label>Date of Birth</label><br>
+	<input type="date" id="date_of_birth" name="date_of_birth" required></br>
+	<input type="submit" value = Register />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+<a href="/">Go back</a>
+</body>
+</html>

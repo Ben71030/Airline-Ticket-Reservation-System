@@ -1,0 +1,29 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Welcome {{username}}</h1>
+
+        <style type="text/css">
+            table, th, td{
+                border: 1px solid black;
+            }
+        </style>
+
+        <table>
+            <th>Revenue Made in the Last Month</th>
+
+        {% for line in earned_revenue %}
+            <tr>
+                <td>{{earned_revenue[line]}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+
+        <a href="/airline_staff_view_revenue">Back</a>
+        <a href="/airline_staff_logout">Logout</a>
+
+    </body>
+
+
+</html>

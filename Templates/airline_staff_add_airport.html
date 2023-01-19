@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    
+    <form action = "/airline_staff_add_airportAuth" method = "POST">
+        <label> Name: </label><br>
+        <input type = "text" id = "Name" name = "Name" placeholder = "Name" required/><br>
+        <label> City: </label><br>
+        <input type = "text" name = "City" placeholder = "City"/><br>
+        <label> Country: </label><br>
+        <input type = "text" name = "Country" placeholder = "Country"/><br>
+        <label> Airport Type:</label><br>
+        <input type = "radio" id = "domestic" name = "airport_type" value = "Domestic">
+        <label for = "domestic">Domestic</label><br>
+        <input type = "radio" id = "international" name = "airport_type" value = "International">
+        <label for = "international">International</label><br>
+        <input type = "radio" id = "both"name = "airport_type" value = "Both">
+        <label for = "both">Both</label><br>
+        <input type = "submit" value = "Add Airport" />
+        {% if error %}
+                <p class="error"><strong>Error:</strong> {{error}}</p>
+            {% endif %}
+    </form>
+
+    <style type="text/css">
+        table, th, td{
+            border: 1px solid black;
+        }
+    </style>
+
+    <table>
+        <th>Airport Name</th>
+        <th>City</th>
+        <th>Country</th>
+        <th>Airport Type</th>
+
+    {% for line in airports %}
+        <tr>
+            <td>{{line['name']}}</td>
+            <td>{{line['city']}}</td>
+            <td>{{line['country']}}</td>
+            <td>{{line['airport_type']}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+    <a href = "/airline_staff_home"> Go Back</a>
+
+</body>
+</html>

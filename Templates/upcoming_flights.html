@@ -1,0 +1,73 @@
+<html>
+<head>
+</head>
+<body>
+<h1>Welcome {{username}}</h1>
+
+<form action="/upcoming_flights_auth" method="POST">
+    <label>Departure Airport:</label><br>
+	<input type="text" name = "Departure_Airport" placeholder="Departure Airport" required/></br><br>
+    <label>Arrival Airport:</label><br>
+	<input type="text" name = "Arrival_Airport" placeholder="Arrival Airport" required/></br><br>
+    <label>Departure Date:</label><br>
+    <input type="date" name = "Departure_Date" placeholder="Departure Date" required/></br><br>
+    <label>Return Date:</label><br>
+    <input type="date" name = "Arrival_Date" placeholder="Return Date (If Round Trip)"/></br><br>
+	<input type="submit" value = Search />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+<table>
+	<th>Flight #</th>
+    <th>Departure Date</th>
+	<th>Departure Time</th>
+    <th>Departure Airport</th>
+    <th>Arrival Date</th>
+	<th>Arrival Time</th>
+    <th>Arrival Airport</th>
+	<th>Airline</th>
+
+    {% for line in flights %}
+        <tr>
+            <td>{{line['flight_number']}}</td>
+            <td>{{line['departure_date']}}</td>
+            <td>{{line['departure_time']}}</td>
+            <td>{{line['departure_airport']}}</td>
+            <td>{{line['arrival_date']}}</td>
+            <td>{{line['arrival_time']}}</td>
+            <td>{{line['arrival_airport']}}</td>
+            <td>{{line['airline_name']}}</td>
+            
+        </tr>
+    {% endfor %}
+</table>
+
+<p>Buy Flights</p>
+<form action="/buy_flights" method="POST">
+	<input type="text" name = "flight_num" placeholder="Flight #" required/></br>
+    <input type="text" name = "card_type" placeholder="Card Type" required/></br>
+    <input type="text" name = "card_num" placeholder="Card #" required/></br>
+    <input type="text" name = "name_on_card" placeholder="Name On Card" required/></br>
+    <input type="text" name = "card_exp" placeholder="Card Expiration Date" required/></br>
+	<input type="submit" value = Buy />
+    {% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+
+<a href="/customer_home">Back Home</a>
+<br>
+<a href="/logout">Logout</a>
+
+</body>
+
+
+</html>

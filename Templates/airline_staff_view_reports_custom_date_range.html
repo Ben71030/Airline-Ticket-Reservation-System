@@ -1,0 +1,39 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Welcome {{username}}</h1>
+
+        <form action = "/view_reports_custom_date_range" method="POST">
+            <label>Purchase Start Date</label>
+            <input type="date" id="purchase_date_start" name = "purchase_date_start" required/></br>
+            <label>Purchase End Date</label>
+            <input type="date" id="purchase_date_end" name = "purchase_date_end" required/></br>
+            <input type = "submit" value = "Search Tickets">
+        </form><br>
+
+        <style type="text/css">
+            table, th, td{
+                border: 1px solid black;
+            }
+        </style>
+
+        <table>
+            <th>Tickets Purchased</th>
+
+        {% for line in ticket %}
+            <tr>
+                <td>{{line['daterange']}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+
+<!--        <form action="/view_flights" method="POST"></form>-->
+
+        <a href="/airline_staff_view_reports">Back</a>
+        <a href="/airline_staff_logout">Logout</a>
+
+    </body>
+
+
+</html>

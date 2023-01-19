@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+    </head>
+    <body>
+        <h3>Login</h3>
+         <a href = "/customer_login">Customer Login </a>
+        <br>
+        <a href = "/airline_staff_login"> Staff Login</a>
+        <br>
+        <h3>Register</h3>
+        <a href = "/customer_register"> Customer Register </a>
+        <br>
+        <a href = "/airline_staff_register"> Staff Register</a>
+
+        <h3>Check Future Flights</h3>
+        <form action = "/future_flights" method = "POST">
+            <!-- <p>Source City</p>
+            <input type = "text" name = "source_city" placeholder = "Source City"><br> -->
+            <p>Source Airport</p>
+            <input type = "text" name = "source_airport" placeholder = "Source Airport"><br>
+            <!-- <p>Destination City</p>
+            <input type = "text" name = "destination_city" placeholder = "Destination City"><br> -->
+            <p>Destination Airport</p>
+            <input type = "text" name = "destination_airport" placeholder = "Destination Airport"><br><br>
+            <input type = "submit" value = "Submit">
+        </form><br>
+
+        <style type="text/css">
+            table, th, td{
+                border: 1px solid black;
+            }
+        </style>
+
+        <table>
+            <th>Flight Number</th>
+            <th>Departure Date</th>
+            <th>Departure Time</th>
+            <th>Airline Name</th>
+            <th>Airport Name</th>
+            <th>Airplane ID</th>
+            <th>Airplane Owner Name</th>
+            <th>Departure Airport</th>
+            <th>Arrival Airport</th>
+            <th>Arrival Time</th>
+            <th>Arrival Date</th>
+            <th>Base Price</th>
+            <th>Status</th>
+
+        {% for line in flights %}
+            <tr>
+                <td>{{line['flight_number']}}</td>
+                <td>{{line['departure_date']}}</td>
+                <td>{{line['departure_time']}}</td>
+                <td>{{line['airline_name']}}</td>
+                <td>{{line['airport_name']}}</td>
+                <td>{{line['airplane_id']}}</td>
+                <td>{{line['airplane_owner_name']}}</td>
+                <td>{{line['departure_airport']}}</td>
+                <td>{{line['arrival_airport']}}</td>
+                <td>{{line['arrival_time']}}</td>
+                <td>{{line['arrival_date']}}</td>
+                <td>{{line['base_price']}}</td>
+                <td>{{line['status']}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+
+        <h3>Check Flight Status</h3>
+        <form action = "/flight_status" method = "POST">
+            <p>Airline</p>
+            <input type = "text" name = "airline_name" placeholder = "Airline Name"><br>
+            <p>Flight Number</p>
+            <input type = "text" name = "flight_number" placeholder = "Flight Number"><br><br>
+            <!-- <p>Arrival/Departure</p> -->
+            <!-- <input type = "text" name = "arrival/departure" placeholder = "Arrival/Departure"><br><br> -->
+            <!-- <input type = "radio" id = "arrival" name = "arrival" value = "Arrival">  -->
+            <label for = "arrival">Arrival</label><br><br>
+            <input type = 'date' name = 'arrival'><br><br>
+            <!-- <input type = "radio" id = "departure" name = "departure"> -->
+            <label for = "departure">Departure</label><br><br>
+            <input type = 'date' name = 'departure'><br><br>
+            <input type = "submit" name = "Submit">
+        </form><br>
+
+        <style type="text/css">
+            table, th, td{
+                border: 1px solid black;
+            }
+        </style>
+
+        <table>
+            <th>Status</th>
+
+        {% for line in status %}
+            <tr>
+                <td>{{line['status']}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </body>
+</html>
